@@ -13,15 +13,15 @@ import { deleteUserAction } from "@/actions"
 import { useContext } from "react"
 import { UserContext } from "@/context"
 
-async function handleDelete(id) {
-    const result = await deleteUserAction(id, "/user-management")
-    console.log(result);
-}
-
 
 function SingleUserCard({ user }) {
     const {setOpenPopup, setAddNewUserFormData, setCurrentEditedId} = useContext(UserContext)
     
+    async function handleDelete(id) {
+        const result = await deleteUserAction(id, "/user-management")
+        console.log(result);
+    }
+
     function handleEdit(user) {
         setOpenPopup(true)
         setAddNewUserFormData({
